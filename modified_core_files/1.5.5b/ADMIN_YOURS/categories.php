@@ -188,10 +188,9 @@ if (zen_not_null($action)) {
       require_once(DIR_WS_CLASSES . 'class.CeonURIMappingAdminCategoryPages.php');
       
     $ceon_uri_mapping_admin = new CeonURIMappingAdminCategoryPages();
+    $ceon_uri_mapping_admin->insertUpdateHandler($categories_id, $current_category_id);
       
-      $ceon_uri_mapping_admin->insertUpdateHandler($categories_id, $current_category_id);
-      
-      // END CEON URI MAPPING 1 of 3
+    // END CEON URI MAPPING 1 of 3
       
       zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&cID=' . $categories_id . ((isset($_GET['search']) && !empty($_GET['search'])) ? '&search=' . $_GET['search'] : '')));
       break;
