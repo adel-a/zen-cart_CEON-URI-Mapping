@@ -192,14 +192,21 @@ class CeonURIMappingAdminCategoryPages extends CeonURIMappingAdminCategories
 	 */
 	function addURIMappingFieldsToAddCategoryFieldsArray()
 	{
-		global $contents;
+		
 		
 		// New category doesn't have any previous URI mappings
 		$prev_uri_mappings = array();
 		
 		$uri_mapping_input_fields = $this->buildCategoryURIMappingFields($prev_uri_mappings);
-		
+		// @todo just testing, change this with a proper version verification
+                $zc156 = true; 
+                if ($zc156 == true) {
+                   echo $uri_mapping_input_fields;
+                } else {
+                   global $contents; 
 		$contents[] = array('text' => $uri_mapping_input_fields);
+	}
+	
 	}
 	
 	// }}}
@@ -244,7 +251,13 @@ class CeonURIMappingAdminCategoryPages extends CeonURIMappingAdminCategories
 		
 		$uri_mapping_input_fields = $this->buildCategoryURIMappingFields($prev_uri_mappings);
 		
+                $zc156 = true; // just for testing
+                if ($zc156 == true) {
+                    echo $uri_mapping_input_fields;
+                }else {
 		$contents[] = array('text' => $uri_mapping_input_fields);
+	}
+	
 	}
 	
 	// }}}
