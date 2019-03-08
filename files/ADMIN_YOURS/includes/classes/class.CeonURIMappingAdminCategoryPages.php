@@ -199,8 +199,7 @@ class CeonURIMappingAdminCategoryPages extends CeonURIMappingAdminCategories
 		
 		$uri_mapping_input_fields = $this->buildCategoryURIMappingFields($prev_uri_mappings);
 		// @todo just testing, change this with a proper version verification
-                $zc156 = true; 
-                if ($zc156 == true) {
+                if (1 <= intval(PROJECT_VERSION_MAJOR) && '5.5' < floatval(PROJECT_VERSION_MINOR)) {
                    echo $uri_mapping_input_fields;
                 } else {
                    global $contents; 
@@ -224,7 +223,6 @@ class CeonURIMappingAdminCategoryPages extends CeonURIMappingAdminCategories
 	 */
 	function addURIMappingFieldsToEditCategoryFieldsArray($category_id)
 	{
-		global $contents;
 		
 		// Get any current category mappings from the database, up to one for each language
 		$prev_uri_mappings = array();
@@ -251,10 +249,10 @@ class CeonURIMappingAdminCategoryPages extends CeonURIMappingAdminCategories
 		
 		$uri_mapping_input_fields = $this->buildCategoryURIMappingFields($prev_uri_mappings);
 		
-                $zc156 = true; // just for testing
-                if ($zc156 == true) {
+                if (1 <= intval(PROJECT_VERSION_MAJOR) && '5.5' < floatval(PROJECT_VERSION_MINOR)) {
                     echo $uri_mapping_input_fields;
-                }else {
+                } else {
+                    global $contents;
 		$contents[] = array('text' => $uri_mapping_input_fields);
 	}
 	
