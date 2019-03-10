@@ -186,8 +186,8 @@ class CeonURIMappingAdminProductPages extends CeonURIMappingAdminProducts
 	{
 		global $languages;
 		
-		$num_uri_mappings = sizeof($this->_uri_mappings);
-		
+		$num_uri_mappings = (!empty($this->_uri_mappings) ? sizeof($this->_uri_mappings) : 0);
+		//$num_uri_mappings = sizeof($this->_uri_mappings);
 		$num_languages = sizeof($languages);
 		
 		$uri_mapping_input_fields .= '<tr>
@@ -880,11 +880,16 @@ class CeonURIMappingAdminProductPages extends CeonURIMappingAdminProducts
 	{
 		global $contents;
 		
-		$uri_mapping_input_fields = $this->buildProductCopyURIMappingFields($product_id);
+            $uri_mapping_input_fields = $this->buildProductCopyURIMappingFields($product_id);
 		
-		if ($uri_mapping_input_fields != false) {
-			$contents[] = array('text' => $uri_mapping_input_fields);
-		}
+            if ($uri_mapping_input_fields != false) {
+                if (1 <= intval(PROJECT_VERSION_MAJOR) && '5.5' < floatval(PROJECT_VERSION_MINOR)) {
+                        echo $uri_mapping_input_fields;
+                } else {
+                    global $contents;
+                    $contents[] = array('text' => $uri_mapping_input_fields); 
+                }
+            }
 	}
 	
 	// }}}
@@ -1838,3 +1843,6 @@ class CeonURIMappingAdminProductPages extends CeonURIMappingAdminProducts
 }
 
 // }}}
+
+
+
