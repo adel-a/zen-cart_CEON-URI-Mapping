@@ -301,7 +301,8 @@ class CeonURIMappingAdminEZPagePages extends CeonURIMappingAdminEZPages
 	{
 		$languages = zen_get_languages();
 		
-		$num_uri_mappings = sizeof($this->_uri_mappings);
+		$num_uri_mappings = (!empty($this->_uri_mappings) ? sizeof($this->_uri_mappings) : 0);
+		//$num_uri_mappings = sizeof($this->_uri_mappings);
 		
 		$num_languages = sizeof($languages);
 		
@@ -386,3 +387,4 @@ class CeonURIMappingAdminEZPagePages extends CeonURIMappingAdminEZPages
 }
 
 // }}}
+
