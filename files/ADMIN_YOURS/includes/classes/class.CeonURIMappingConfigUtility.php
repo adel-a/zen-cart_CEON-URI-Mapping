@@ -521,7 +521,7 @@ class CeonURIMappingConfigUtility extends CeonURIMappingVersion
 				'manage_product_reviews_info_mappings' => ($this->_manage_product_reviews_info_mappings ? 1 : 0),
 				'manage_product_reviews_write_mappings' => ($this->_manage_product_reviews_write_mappings ? 1 : 0),
 				'manage_tell_a_friend_mappings' => ($this->_manage_tell_a_friend_mappings ? 1 : 0),
-				'automatic_version_checking' => $this->_automatic_version_checking
+				'automatic_version_checking' => (int)$this->_automatic_version_checking
 				);
 			
 			// Only one config currently supported so ID is hard-coded
@@ -1087,3 +1087,4 @@ class CeonURIMappingConfigUtility extends CeonURIMappingVersion
 }
 
 // }}}
+
