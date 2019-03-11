@@ -676,17 +676,17 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				)
 			);
 		
-		/*$core_file_modifications[] = array(
-			'path' => DIR_WS_FUNCTIONS . 'html_output.php',
-			'num_mods' => 1,
-			'new_snippets' => array(
-				array(
-					'|1 of 1[\s]+if \(defined\(\'CEON_URI_MAPPING_ENABLED\'\)|',
-					'|return \$ceon_uri_mapping_href_link_builder\->getHREFLink\(\);|'
-					)
-				)
-			);
-		*/
+//		$core_file_modifications[] = array(
+//			'path' => DIR_WS_FUNCTIONS . 'html_output.php',
+//			'num_mods' => 1,
+//			'new_snippets' => array(
+//				array(
+//					'|1 of 1[\s]+if \(defined\(\'CEON_URI_MAPPING_ENABLED\'\)|',
+//					'|return \$ceon_uri_mapping_href_link_builder\->getHREFLink\(\);|'
+//					)
+//				)
+//			);
+		
 		// As the product types share their modifications, a basic template is defined here to save wasted coding
 		$product_type_collect_info_modifications = array(
 			'num_mods' => 2,
@@ -787,7 +787,7 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 			'new_snippets' => array(
 				array(
 					'require_once(DIR_WS_CLASSES . \'class.CeonURIMappingAdminProductPages.php\');',
-					'$ceon_uri_mapping_admin->moveProductConfirmHandler($products_id, $product_type'
+					'$ceon_uri_mapping_admin->moveProductConfirmHandler($products_id, zen_get_products_type($products_id)'
 					)
 				),
 			'old_snippets' => array(
@@ -1018,48 +1018,48 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				)
 			);
 		
-		$core_file_modifications[] = array(
-			'path' => 'product.php',
-			'num_mods' => 3,
-			'new_snippets' => array(
-				array(
-					'|1 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToAddCategoryFieldsArray();'
-					),
-				array(
-					'|2 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToEditCategoryFieldsArray('
-					),
-				array(
-					'require_once(DIR_WS_CLASSES . \'class.CeonURIMappingAdminProductPages.php\');',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToProductCopyFieldsArray((int) $_G'
-					)
-				),
-			'old_snippets' => array(
-				'// New category doesn\'t have any previous URI mappings',
-				'$prev_uri_mappings_sql = "',
-				'$uri_mapping_input_fields = ceon_uri_mapping_build_product_copy_uri_fields('
-				)
-			);
+//		$core_file_modifications[] = array(
+//			'path' => 'product.php',
+//			'num_mods' => 3,
+//			'new_snippets' => array(
+//				array(
+//					'|1 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToAddCategoryFieldsArray();'
+//					),
+//				array(
+//					'|2 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToEditCategoryFieldsArray('
+//					),
+//				array(
+//					'require_once(DIR_WS_CLASSES . \'class.CeonURIMappingAdminProductPages.php\');',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToProductCopyFieldsArray((int) $_G'
+//					)
+//				),
+//			'old_snippets' => array(
+//				'// New category doesn\'t have any previous URI mappings',
+//				'$prev_uri_mappings_sql = "',
+//				'$uri_mapping_input_fields = ceon_uri_mapping_build_product_copy_uri_fields('
+//				)
+//			);
 		
-		$core_file_modifications[] = array(
-			'path' => 'product_music.php',
-			'num_mods' => 3,
-			'new_snippets' => array(
-				array(
-					'|1 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToAddCategoryFieldsArray();'
-					),
-				array(
-					'|2 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToEditCategoryFieldsArray('
-					),
-				array(
-					'require_once(DIR_WS_CLASSES . \'class.CeonURIMappingAdminProductPages.php\');',
-					'$ceon_uri_mapping_admin->addURIMappingFieldsToProductCopyFieldsArray((int) $_G'
-					)
-				)
-			);
+//		$core_file_modifications[] = array(
+//			'path' => 'product_music.php',
+//			'num_mods' => 3,
+//			'new_snippets' => array(
+//				array(
+//					'|1 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToAddCategoryFieldsArray();'
+//					),
+//				array(
+//					'|2 of 3[\s]+require_once\(DIR_WS_CLASSES \. \'class\.CeonURIMappingAdminCate|',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToEditCategoryFieldsArray('
+//					),
+//				array(
+//					'require_once(DIR_WS_CLASSES . \'class.CeonURIMappingAdminProductPages.php\');',
+//					'$ceon_uri_mapping_admin->addURIMappingFieldsToProductCopyFieldsArray((int) $_G'
+//					)
+//				)
+//			);
 		
 		$core_file_modifications[] = array(
 			'path' => 'product_free_shipping.php',
@@ -1080,38 +1080,37 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				)
 			);
 		
-		/*$core_file_modifications[] = array(
-			'path' => DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'html_output.php',
-			'num_mods' => 1,
-			'new_snippets' => array(
-				array(
-					'if (!isset($ceon_uri_mapping_href_link_builder)) {',
-					'return $ceon_uri_mapping_href_link_builder->getHREFLink();'
-					)
-				),
-			'old_snippets' => array(
-				'|1 of [3-4]+[\s]+global \$db|',
-				'if (defined(\'CEON_URI_MAPPING_ENABLED\') && CEON_URI_MAPPING_ENABLED == 1) {',
-				'|3 of 4[\s]+}|',
-				'if (strpos($link, \'?\') === false) {'
-				)
-			);
-		*/
-                pr($core_file_modifications);
-		$core_file_modifications[] = array(
-			'path' => DIR_FS_CATALOG . DIR_WS_INCLUDES . 'init_includes/overrides/init_add_crumbs.php',
-			'num_mods' => 2,
-			'file_required' => true,
-			'new_snippets' => array(
-				array(
-					'$typefilter_parameters = \'\';',
-					'zen_href_link(FILENAME_DEFAULT, $typefilter_parameters));'
-					),
-				array(
-					'|2 of 2[\s]+\*/|'
-					)
-				)
-			);
+//		$core_file_modifications[] = array(
+//			'path' => DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'html_output.php',
+//			'num_mods' => 1,
+//			'new_snippets' => array(
+//				array(
+//					'if (!isset($ceon_uri_mapping_href_link_builder)) {',
+//					'return $ceon_uri_mapping_href_link_builder->getHREFLink();'
+//					)
+//				),
+//			'old_snippets' => array(
+//				'|1 of [3-4]+[\s]+global \$db|',
+//				'if (defined(\'CEON_URI_MAPPING_ENABLED\') && CEON_URI_MAPPING_ENABLED == 1) {',
+//				'|3 of 4[\s]+}|',
+//				'if (strpos($link, \'?\') === false) {'
+//				)
+//			);
+		
+//		$core_file_modifications[] = array(
+//			'path' => DIR_FS_CATALOG . DIR_WS_INCLUDES . 'init_includes/overrides/init_add_crumbs.php',
+//			'num_mods' => 2,
+//			'file_required' => true,
+//			'new_snippets' => array(
+//				array(
+//					'$typefilter_parameters = \'\';',
+//					'zen_href_link(FILENAME_DEFAULT, $typefilter_parameters));'
+//					),
+//				array(
+//					'|2 of 2[\s]+\*/|'
+//					)
+//				)
+//			);
 		
 		$core_file_modifications[] = array(
 			'path' => DIR_FS_CATALOG . DIR_WS_INCLUDES . 'init_includes/overrides/init_canonical.php',
@@ -2902,6 +2901,7 @@ RewriteRule .* " . substr(DIR_WS_CATALOG, 1, strlen(DIR_WS_CATALOG) - 1) . 'inde
 }
 
 // }}}
+
 
 
 
