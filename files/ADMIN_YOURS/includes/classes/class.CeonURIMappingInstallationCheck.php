@@ -676,7 +676,7 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				)
 			);
 		
-		$core_file_modifications[] = array(
+		/*$core_file_modifications[] = array(
 			'path' => DIR_WS_FUNCTIONS . 'html_output.php',
 			'num_mods' => 1,
 			'new_snippets' => array(
@@ -686,7 +686,7 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 					)
 				)
 			);
-		
+		*/
 		// As the product types share their modifications, a basic template is defined here to save wasted coding
 		$product_type_collect_info_modifications = array(
 			'num_mods' => 2,
@@ -1080,7 +1080,7 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				)
 			);
 		
-		$core_file_modifications[] = array(
+		/*$core_file_modifications[] = array(
 			'path' => DIR_FS_CATALOG . DIR_WS_FUNCTIONS . 'html_output.php',
 			'num_mods' => 1,
 			'new_snippets' => array(
@@ -1096,7 +1096,8 @@ class CeonURIMappingInstallationCheck extends CeonURIMappingVersion
 				'if (strpos($link, \'?\') === false) {'
 				)
 			);
-		
+		*/
+                pr($core_file_modifications);
 		$core_file_modifications[] = array(
 			'path' => DIR_FS_CATALOG . DIR_WS_INCLUDES . 'init_includes/overrides/init_add_crumbs.php',
 			'num_mods' => 2,
@@ -2901,3 +2902,6 @@ RewriteRule .* " . substr(DIR_WS_CATALOG, 1, strlen(DIR_WS_CATALOG) - 1) . 'inde
 }
 
 // }}}
+
+
+
