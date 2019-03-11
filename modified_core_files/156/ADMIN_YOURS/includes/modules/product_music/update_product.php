@@ -134,12 +134,6 @@ if (isset($_GET['pID'])) {
       }
     }
 
-  zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&pID=' . $products_id . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_POST['search']) ? '&search=' . $_POST['search'] : '')));
-} else {
-  $messageStack->add_session(ERROR_NO_DATA_TO_SAVE, 'error');
-  zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&pID=' . $products_id . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_POST['search']) ? '&search=' . $_POST['search'] : '')));
-}
-
 // BEGIN CEON URI MAPPING 1 of 1
     require_once(DIR_WS_CLASSES . 'class.CeonURIMappingAdminProductPages.php');
     
@@ -148,6 +142,13 @@ if (isset($_GET['pID'])) {
     $ceon_uri_mapping_admin->updateProductHandler($products_id, $zc_products->get_handler($product_type));
     
     // END CEON URI MAPPING 1 of 1
+
+  zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&pID=' . $products_id . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_POST['search']) ? '&search=' . $_POST['search'] : '')));
+  
+} else {
+  $messageStack->add_session(ERROR_NO_DATA_TO_SAVE, 'error');
+  zen_redirect(zen_href_link(FILENAME_CATEGORY_PRODUCT_LISTING, 'cPath=' . $cPath . '&pID=' . $products_id . (isset($_GET['page']) ? '&page=' . $_GET['page'] : '') . (isset($_POST['search']) ? '&search=' . $_POST['search'] : '')));
+}
 
 /**
  * NOTE: THIS IS HERE FOR BACKWARD COMPATIBILITY. The function is properly declared in the functions files instead.
@@ -171,3 +172,4 @@ if (!function_exists('convertToFloat')) {
       }
 
   }
+
